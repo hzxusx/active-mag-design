@@ -92,7 +92,8 @@ nodes, weights = gausslegendre(300)
 """
     calcB(cw::CircularWire, p0, nodes=nodes, weights=weights)
 
-Special method for calculate the dimentionless unit magnetic field at position `p0` of the CircularWire `cw`.
+Special method for calculate the dimentionless unit magnetic field at position `p0` of the CircularWire `cw`. 
+Coefficient μ_0*I/4π is neglated. 
 Use 300 points Gauss-Legendre intergral by default.
 """
 function calcB(cw::CircularWire, p0, nodes=nodes, weights=weights)
@@ -117,7 +118,8 @@ end
     calcB(gw::GeneralWire{T}, vec::Array{T, 1}, n=1000)
 
 Calculate the dimentionless unit magnetic field at position `p0` of GeneralWire `gw`. 
-Use 1000 points Gauss-Legendre intergral of Biot-Savart law by default.
+Coefficient μ_0*I/4π is neglated. 
+Use 1000 points Gauss-Legendre of Biot-Savart intergral by default.
 """
 function calcB(gw::GeneralWire{T}, vec::Array{T, 1}, n=1000) where {T}
     # nodes, weights = gausslegendre(n)
